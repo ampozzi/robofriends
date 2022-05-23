@@ -2,6 +2,7 @@ import React,{ Component } from 'react';
 import Cardlist from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import Sticky from '../components/Sticky';
+import ErrorBoundary from '../components/ErrorBoundary';
 import './App.css';
 
 class App extends Component{
@@ -31,7 +32,9 @@ class App extends Component{
                 <Sticky id='stickysearch'>
                     <SearchBox searchChange={this.onSearchChange}/>
                 </Sticky>
-                <Cardlist robots={filteredRobots}/>
+                <ErrorBoundary>
+                    <Cardlist robots={filteredRobots}/>
+                </ErrorBoundary>
             </div>
         );
     } 
