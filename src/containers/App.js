@@ -12,6 +12,7 @@ class App extends Component{
             robots:[],
             searchField:''
         };
+        // this.onSearchChange=this.onSearchChange.bind(this);
     }
 
     componentDidMount(){
@@ -23,12 +24,13 @@ class App extends Component{
     onSearchChange=(event)=>{
         this.setState({searchField: event.target.value})
     }
+    
     render(){
         const { robots, searchField} =this.state;
         const filteredRobots=robots.filter(robot=>robot.name.toLowerCase().includes(searchField.toLowerCase()));
         return (
             <div className='tc'>
-                    <h1 className='f1'>RoboFriends</h1>
+                <h1 className='f1'>RoboFriends</h1>
                 <Sticky id='stickysearch'>
                     <SearchBox searchChange={this.onSearchChange}/>
                 </Sticky>
